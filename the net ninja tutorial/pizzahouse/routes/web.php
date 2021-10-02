@@ -17,6 +17,8 @@ Route::get('/', function () {
 	return view('welcome');
 });
 
+
+// query parameters
 Route::get('/pizzas', function () {
 	$pizzas = [
 		['type' => 'hawaiian', 'base' => 'cheesy crust'],
@@ -31,4 +33,12 @@ Route::get('/pizzas', function () {
 		'name' => $name,
 		'age' => request('age')
 	]);
+});
+
+
+// route parameters / wildcards
+Route::get('/pizzas/{id}', function ($id) {
+	// use the $id variable to query the db for a record
+
+	return view('details', ['id' => $id]);
 });

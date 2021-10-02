@@ -19,26 +19,7 @@ Route::get('/', function () {
 
 
 // query parameters
-Route::get('/pizzas', function () {
-	$pizzas = [
-		['type' => 'hawaiian', 'base' => 'cheesy crust'],
-    ['type' => 'volcano', 'base' => 'garlic crust'],
-    ['type' => 'veg supreme', 'base' => 'thin & crispy']
-	];
-
-	$name = request('name');
-
-	return view('pizzas', [
-		'pizzas' => $pizzas,
-		'name' => $name,
-		'age' => request('age')
-	]);
-});
-
+Route::get('/pizzas', 'PizzaController@index');
 
 // route parameters / wildcards
-Route::get('/pizzas/{id}', function ($id) {
-	// use the $id variable to query the db for a record
-
-	return view('details', ['id' => $id]);
-});
+Route::get('/pizzas/{id}', 'PizzaController@show');

@@ -24,6 +24,22 @@
         <div class="relative flex items-top justify-center min-h-screen sm:items-center py-4 sm:pt-0">
             <div>
               <p>{{ $type }} - {{ $base }}: {{ $price }}</p>
+              @if ($price > 15)
+                <p>this pizza is expensive</p>
+              @elseif ($price < 5)
+                <p>this pizza is cheap</p>
+              @else
+                <p>this pizza is normally priced</p>
+              @endif
+
+              @unless ($base == 'cheesy crust')
+                <p>you don't have a cheesy crust</p>
+              @endunless
+
+              @php
+                $name = 'kek';
+                echo($name);
+              @endphp
             </div>
         </div>
     </body>

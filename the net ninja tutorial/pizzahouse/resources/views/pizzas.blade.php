@@ -23,23 +23,27 @@
     <body class="antialiased">
         <div class="relative flex items-top justify-center min-h-screen sm:items-center py-4 sm:pt-0">
             <div>
-              <p>{{ $type }} - {{ $base }}: {{ $price }}</p>
-              @if ($price > 15)
-                <p>this pizza is expensive</p>
-              @elseif ($price < 5)
-                <p>this pizza is cheap</p>
-              @else
-                <p>this pizza is normally priced</p>
-              @endif
+              
+              
+              {{-- @for ($i = 0; $i < 5; $i++)
+                <p>the value of i is {{ $i }}</p>
+              @endfor
 
-              @unless ($base == 'cheesy crust')
-                <p>you don't have a cheesy crust</p>
-              @endunless
+              @for ($i = 0; $i < count($pizzas); $i++)
+                <p>{{ $pizzas[$i]['type'] }} - {{ $pizzas[$i]['base'] }}</p>
+              @endfor --}}
 
-              @php
-                $name = 'kek';
-                echo($name);
-              @endphp
+              @foreach ($pizzas as $pizza)
+                <p>
+                  {{ $loop->index }} {{ $pizza['type'] }} - {{ $pizza['base'] }}
+                  @if ($loop->first)
+                    <span> - first in loop</span>
+                  @endif
+                  @if ($loop->last)
+                    <span> - last in loop</span>
+                  @endif
+                </p>
+              @endforeach
             </div>
         </div>
     </body>

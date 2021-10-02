@@ -22,5 +22,8 @@ Route::get('/', function () {
 // query parameters
 Route::get('/pizzas', [PizzaController::class, 'index']);
 
+// add before the wildcard
+Route::get('/pizzas/create', [PizzaController::class, 'create']);
+
 // route parameters / wildcards
 Route::get('/pizzas/{id}', [PizzaController::class, 'show']);

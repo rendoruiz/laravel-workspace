@@ -14,10 +14,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	return view('welcome');
 });
 
 Route::get('/pizzas', function () {
-    // return view('welcome');
-    return 'pizzas';
+	$pizza = [
+		'type' => 'hawaiian', 
+		'base' => 'cheesy crust',
+		'price' => 'free'
+	];
+
+	return view('pizzas', $pizza);
 });

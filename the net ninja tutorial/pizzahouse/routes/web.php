@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PizzaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,7 @@ Route::get('/', function () {
 
 
 // query parameters
-Route::get('/pizzas', 'PizzaController@index');
+Route::get('/pizzas', [PizzaController::class, 'index']);
 
 // route parameters / wildcards
-Route::get('/pizzas/{id}', 'PizzaController@show');
+Route::get('/pizzas/{id}', [PizzaController::class, 'show']);

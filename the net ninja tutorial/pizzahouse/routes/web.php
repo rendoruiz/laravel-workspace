@@ -20,17 +20,17 @@ Route::get('/', function () {
 
 
 // query parameters
-Route::get('/pizzas', [PizzaController::class, 'index'])->middleware('auth');
+Route::get('/pizzas', [PizzaController::class, 'index'])->name('pizzas.index')->middleware('auth');
 
 // add before the wildcard
-Route::get('/pizzas/create', [PizzaController::class, 'create']);
+Route::get('/pizzas/create', [PizzaController::class, 'create'])->name('pizzas.create');
 
 // route parameters / wildcards
-Route::get('/pizzas/{id}', [PizzaController::class, 'show']);
+Route::get('/pizzas/{id}', [PizzaController::class, 'show'])->name('pizzas.show');
 
-Route::post('/pizzas', [PizzaController::class, 'store'])->middleware('auth');
+Route::post('/pizzas', [PizzaController::class, 'store'])->name('pizzas.store')->middleware('auth');
 
-Route::delete('/pizzas/{id}', [PizzaController::class, 'destroy'])->middleware('auth');
+Route::delete('/pizzas/{id}', [PizzaController::class, 'destroy'])->name('pizzas.destroy')->middleware('auth');
 
 // add array inside routes to disable auth routes
 Auth::routes([

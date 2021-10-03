@@ -32,6 +32,9 @@ Route::post('/pizzas', [PizzaController::class, 'store'])->middleware('auth');
 
 Route::delete('/pizzas/{id}', [PizzaController::class, 'destroy'])->middleware('auth');
 
-Auth::routes();
+// add array inside routes to disable auth routes
+Auth::routes([
+	'register' => false
+]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -20,8 +20,9 @@ class PizzaController extends Controller
 	}
 
 	public function show($id) {
+		$pizza = Pizza::findOrFail($id);
 		// use the $id variable to query the db for a record
-		return view('pizzas.show', ['id' => $id]);
+		return view('pizzas.show', ['pizza' => $pizza]);
 	}
 
 	public function create() {

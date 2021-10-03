@@ -27,3 +27,5 @@ Route::get('/pizzas/create', [PizzaController::class, 'create']);
 
 // route parameters / wildcards
 Route::get('/pizzas/{id}', [PizzaController::class, 'show']);
+
+Route::post('/pizzas', [PizzaController::class, 'store']);

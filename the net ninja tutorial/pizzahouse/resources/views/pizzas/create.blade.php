@@ -23,6 +23,14 @@
       <option value="thick">Thich</option>
     </select>
     <input type="submit" value="Order Pizza">
+    <fieldset>
+      <label>Extra toppings:</label>
+      {{-- add [] to name to make it an array --}}
+      <input type="checkbox" name="toppings[]" value="mushrooms">mushrooms <br>
+      <input type="checkbox" name="toppings[]" value="pepper">pepper <br>
+      <input type="checkbox" name="toppings[]" value="garlic">garlic <br>
+      <input type="checkbox" name="toppings[]" value="olives">olives <br>
+    </fieldset>
   </form>
 </div>
 @endsection
